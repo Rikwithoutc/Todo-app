@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+}
+
+h1 {
+    font-family: "Finger Paint", cursive;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    border-bottom: #8b810e solid 1px;
+    box-shadow: 5px 20px 15px 5px rgb(87, 87, 15);
+    background-color: yellow;
+}
+
+main {
+    background: linear-gradient(to bottom right,
+    #fcad25,
+    rgba(255, 255, 57, 0.533));
+    height: calc(100vh - 20vh);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+}
+
+form {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 3px;
+    font-family: "Comic Neue", cursive;
+}
+
+#task-input {
+    width: 50%;
+    height: 100%;
+    border: #8b810e solid 1px;
+    border-radius: 50px 0px 0px 50px;
+    padding: 0 25px;
+    font-size: 1.5rem;
+    font-family: inherit;
+}
+
+#task-input:focus {
+    outline: none;
+}
+
+.add-button {
+    width: 130px;
+    height: 100%;
+    border-radius: 0px 50px 50px 0px;
+    border: #8b810e solid 1px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #fff47d;
+    color:rgb(47, 47, 15);
+    cursor: pointer;
+}
+
+.clear-all {
+    width: 60px;
+    height: 100%;
+    border-radius: 20px;
+    border: #8b810e solid 1px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.clear-all svg {
+    fill: white;
+    stroke: rgb(69, 4, 4);
+    height: 45px;
+    width: 45px;
+}
+
+
+.task-list {
+    width: calc(60% + 130px);
+    margin: 20px;
+    border: #8b810e solid 1px;
+    border-radius: 20px;
+    min-height: 200px;
+    max-height: 380px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    margin: 20px 20px 30px 20px;
+    border: #8b810e solid 1px;
+    padding: 10px;
+    font-family: "Comic Neue", cursive;
+    font-size: 1.5rem;
+    border-radius: 20px;
+}
+
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: #8b810e solid 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.15s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-checkbox:hover {
+    background-color: #9b8f12;
+}
+
+.custom-checkbox svg {
+    height: 16px;
+    width: 16px;
+    opacity: 0;
+    fill: #fcad25;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+
+.todo-text {
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 0 10px;
+    position: relative;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox {
+    background-color: #474204;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox svg {
+    opacity: 1;
+}
+
+input[type="checkbox"]:checked ~ .todo-text {
+    color: #8b810e;
+    text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.delete-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.delete-button:hover {
+    fill: rgb(255, 153, 0);
+    border: #8b810e solid 1px;
+}
+
+
+
+
+@media (max-width: 500px) {
+    
+    h1 {
+        font-size: 4rem;
+    }
+
+    form {
+        height: 150px;
+        flex-direction: column;
+    }
+
+    #task-input {
+        width: 90%;
+        border-radius: 50px;
+        margin-bottom: 3px
+    }
+
+    .add-button, .clear-all {
+        width: 90%;
+        border-radius: 50px;
+    }
+
+    .task-list{
+        width: 90%;
+    }
+
+    .task {
+        margin: 10px;
+    }
+}
